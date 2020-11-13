@@ -14,7 +14,7 @@ function newFactory(ctor, ...args) {
     let res = ctor.apply(obj, ...args);
 
     // 4. 确定是否返回对象实例
-    let isObject = res instanceof Object;
+    let isObject = (typeof res === 'object' || typeof res === 'function') && res !== null;
     return isObject ? res : obj;
 };
 
